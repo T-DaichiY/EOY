@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G8 ICT — Study Guide, Quiz & Mock Tests</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f8f9fb;--sf:#fff;--sf2:#f1f3f7;--sf3:#e8ecf2;
+  --bd:#e2e6ed;--bd2:#c8cfd8;
+  --tx:#111827;--mu:#6b7280;--mu2:#9ca3af;
+  --gr:#d97706;--nw:#0891b2;--ai:#7c3aed;--py:#16a34a;--se:#dc2626;
+  --ok:#16a34a;--no:#dc2626;
+  --r:12px;--rs:8px;--nh:56px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden}
+code{font-family:'Courier New',monospace;background:#f1f5f9;border:1px solid #e2e8f0;padding:2px 6px;border-radius:4px;font-size:.87em;color:#0f172a}
+strong{font-weight:500}
+
+/* ── NAV ── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);height:var(--nh);display:flex;align-items:center;padding:0 1.5rem;gap:.5rem;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--tx);white-space:nowrap;margin-right:.25rem}
+.nav-logo span{color:var(--nw)}
+.nav-tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.nav-tabs::-webkit-scrollbar{display:none}
+.ntab{font-family:'Syne',sans-serif;font-size:12px;font-weight:600;padding:6px 13px;border-radius:100px;border:none;background:transparent;color:var(--mu);cursor:pointer;white-space:nowrap;transition:all .18s;flex-shrink:0}
+.ntab:hover{color:var(--tx);background:var(--sf2)}
+.ntab.on{background:var(--tx);color:#fff}
+.ns{flex:1}
+
+/* ── PAGES ── */
+.pg{display:none;padding-top:var(--nh);min-height:100vh}
+.pg.on{display:block}
+
+/* ── HOME ── */
+#ph{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:5rem 1.5rem 3rem;text-align:center;position:relative;overflow:hidden}
+#ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% 0%,rgba(124,58,237,.06),transparent 65%);pointer-events:none}
+.cbg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.cb{position:absolute;border-radius:50%;border:1px solid;opacity:.1;animation:cbSpin linear infinite}
+@keyframes cbSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.hc-wrap{position:relative;z-index:1;max-width:680px}
+.h-badge{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mu);background:var(--sf);border:1px solid var(--bd);padding:5px 14px;border-radius:100px;display:inline-block;margin-bottom:1.75rem}
+.h-title{font-family:'Syne',sans-serif;font-size:clamp(2.4rem,8vw,4.8rem);font-weight:800;line-height:1.04;margin-bottom:1rem;color:var(--tx)}
+.h-title span{background:linear-gradient(120deg,var(--nw),var(--ai));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.h-sub{font-size:1rem;color:var(--mu);line-height:1.72;margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto}
+.hcards{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:2rem}
+.hcard{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:.9rem .7rem;cursor:pointer;transition:all .2s;text-align:left;border-top:3px solid var(--c,#888)}
+.hcard:hover{box-shadow:0 4px 16px rgba(0,0,0,.08);transform:translateY(-2px)}
+.hcard-i{font-size:1.35rem;margin-bottom:.4rem}
+.hcard-n{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--c,#888)}
+.hcard-s{font-size:10px;color:var(--mu);margin-top:2px}
+.h-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btnp{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;padding:12px 30px;border-radius:100px;border:none;background:var(--tx);color:#fff;cursor:pointer;transition:all .2s}
+.btnp:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.18)}
+.btns{font-family:'Syne',sans-serif;font-weight:600;font-size:.9rem;padding:12px 30px;border-radius:100px;border:1px solid var(--bd2);background:var(--sf);color:var(--tx);cursor:pointer;transition:all .2s}
+.btns:hover{background:var(--sf2)}
+
+/* ── GUIDE ── */
+.gl{max-width:900px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
+.g-hero{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--bd)}
+.g-hero h2{font-family:'Syne',sans-serif;font-size:1.7rem;font-weight:800;margin-bottom:.35rem}
+.g-hero p{color:var(--mu);font-size:.93rem;line-height:1.65}
+.g-tnav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:2rem}
+.gtnb{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;padding:6px 14px;border-radius:100px;border:1.5px solid;cursor:pointer;transition:all .18s;background:transparent}
+.gtnb:hover{opacity:.75}
+.tsec{margin-bottom:3.5rem;scroll-margin-top:70px}
+.thdr{display:flex;align-items:center;gap:12px;margin-bottom:1.4rem;padding-bottom:1rem;border-bottom:1px solid var(--bd)}
+.tico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.ttitle{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800}
+.tsub{font-size:12px;color:var(--mu);margin-top:2px}
+.gc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:1.25rem 1.4rem;margin-bottom:.85rem}
+.gct{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:.6rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pill{font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px}
+.gcd{font-size:.87rem;color:#374151;line-height:1.68;margin-bottom:.75rem;background:var(--sf2);padding:.7rem 1rem;border-radius:var(--rs)}
+.kp{list-style:none}
+.kp li{font-size:.86rem;color:var(--tx);padding:5px 0 5px 18px;position:relative;border-bottom:1px solid var(--bd);line-height:1.55}
+.kp li:last-child{border-bottom:none}
+.kp li::before{content:'→';position:absolute;left:0;color:var(--mu)}
+.warn{margin-top:.75rem;background:#fffbeb;border:1px solid #fde68a;border-radius:var(--rs);padding:.65rem .9rem;font-size:.84rem;color:#92400e;line-height:1.55}
+.tip{margin-top:.75rem;background:#eff6ff;border:1px solid #bfdbfe;border-radius:var(--rs);padding:.65rem .9rem;font-size:.84rem;color:#1e40af;line-height:1.55}
+.ext{margin-top:.75rem;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--rs);padding:.65rem .9rem;font-size:.84rem;color:#14532d;line-height:1.55}
+.ext-b{display:inline-block;font-family:'Syne',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:#dcfce7;color:#166534;border-radius:100px;padding:2px 7px;margin-right:6px;vertical-align:middle}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:.65rem}
+.cbox{background:var(--sf2);border:1px solid var(--bd);border-radius:var(--rs);padding:.8rem}
+.cbox h4{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;margin-bottom:.45rem}
+.cbox ul{list-style:none}
+.cbox ul li{font-size:11.5px;color:var(--tx);padding:3px 0 3px 12px;position:relative;line-height:1.45}
+.cbox ul li::before{content:'·';position:absolute;left:0;color:var(--mu)}
+.formula{background:#f5f3ff;border:1px solid #ddd6fe;border-radius:var(--rs);padding:.6rem .9rem;margin-top:.55rem;font-family:'Courier New',monospace;font-size:.86rem;color:#4c1d95;text-align:center}
+.codeblk{background:#1e293b;border-radius:var(--rs);padding:.8rem 1rem;font-family:'Courier New',monospace;font-size:.8rem;color:#e2e8f0;margin-top:.55rem;line-height:1.9;border:1px solid #334155}
+.ck{color:#93c5fd}.cs{color:#fcd34d}.cc{color:#64748b;font-style:italic}.cok{color:#86efac}.cer{color:#fca5a5}
+.dbox{background:var(--sf2);border:1px solid var(--bd);border-radius:var(--rs);padding:1.1rem;margin-top:.65rem;overflow:hidden}
+.dl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);margin-bottom:.8rem}
+
+/* ── QUIZ/MOCK SHARED LAYOUT ── */
+.qpage-inner{padding-top:var(--nh)}
+.qstart{max-width:620px;margin:0 auto;padding:3rem 1.5rem;text-align:center}
+.qst{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;color:var(--tx);margin-bottom:.4rem}
+.qss{color:var(--mu);font-size:.92rem;line-height:1.65;margin-bottom:2rem}
+.mode-row{display:flex;gap:10px;justify-content:center;margin-bottom:1.5rem;flex-wrap:wrap}
+.mb{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;padding:9px 20px;border-radius:100px;border:1.5px solid var(--bd2);background:var(--sf);color:var(--mu);cursor:pointer;transition:all .18s}
+.mb.on{background:var(--tx);color:#fff;border-color:var(--tx)}
+.topic-picker{display:none;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:1.5rem}
+.set-picker{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:1.5rem}
+.setbtn{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;padding:10px 8px;border-radius:var(--r);border:1.5px solid var(--bd2);background:var(--sf);color:var(--mu);cursor:pointer;transition:all .18s;text-align:center}
+.setbtn:hover{background:var(--sf2);color:var(--tx)}
+.setbtn.on{background:var(--tx);border-color:var(--tx);color:#fff}
+.set-hint{font-size:12px;color:var(--mu);line-height:1.55;margin:-.6rem 0 1rem}
+.tsel{background:var(--sf);border:1.5px solid var(--bd);border-radius:var(--r);padding:.8rem .5rem;text-align:center;cursor:pointer;transition:all .2s;opacity:.45}
+.tsel.on{opacity:1}
+.tsel-i{font-size:1.3rem;margin-bottom:.3rem}
+.tsel-n{font-family:'Syne',sans-serif;font-size:10px;font-weight:700}
+.mock-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:2rem}
+.mock-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:1.2rem;cursor:pointer;transition:all .2s;border-left:4px solid var(--c,#888);text-align:left}
+.mock-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.09);transform:translateY(-2px)}
+.mock-card h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--tx);margin-bottom:.35rem}
+.mock-card p{font-size:.84rem;color:var(--mu);line-height:1.55;margin-bottom:.75rem}
+.mock-meta{display:flex;gap:8px;flex-wrap:wrap}
+.mock-tag{font-size:10px;font-weight:700;font-family:'Syne',sans-serif;padding:3px 9px;border-radius:100px;background:var(--sf2);color:var(--mu);border:1px solid var(--bd)}
+.mock-start-btn{width:100%;margin-top:.85rem;font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;padding:9px;border-radius:var(--rs);border:none;cursor:pointer;color:#fff;transition:all .18s}
+.timer-wrap{display:none;height:5px;background:var(--sf2);border-radius:3px;overflow:hidden;margin:0 1.5rem .5rem}
+.timer-fill{height:100%;background:#0891b2;border-radius:3px;transition:width 1s linear}
+#timer-txt{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;white-space:nowrap;color:var(--mu)}
+.qhdr{display:flex;align-items:center;gap:.85rem;padding:.75rem 1.5rem;border-bottom:1px solid var(--bd);background:var(--sf)}
+.qpw{flex:1;height:5px;background:var(--sf2);border-radius:3px;overflow:hidden}
+.qpf{height:100%;border-radius:3px;transition:width .4s ease}
+.qctr{font-size:12px;color:var(--mu);white-space:nowrap}
+.qsc{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;white-space:nowrap}
+.qbody{max-width:780px;margin:0 auto;padding:1.75rem 1.5rem 5rem}
+.qthdr{display:flex;align-items:center;gap:10px;margin-bottom:1.35rem;padding-bottom:1rem;border-bottom:1px solid var(--bd)}
+.qticon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.qtname{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700}
+.qtprog{font-size:11px;color:var(--mu);margin-top:1px}
+.q-diag{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:1.1rem;margin-bottom:1rem;overflow:hidden}
+.q-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:1.35rem 1.45rem;margin-bottom:.75rem}
+.qntag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);margin-bottom:.4rem}
+.qtext{font-size:.98rem;line-height:1.65;margin-bottom:1.1rem;color:var(--tx)}
+.q-tools{display:flex;gap:8px;margin-bottom:.85rem;flex-wrap:wrap}
+.tbtn{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;padding:5px 13px;border-radius:100px;border:1.5px solid;cursor:pointer;transition:all .18s;background:var(--sf)}
+.hbtn{color:#6d28d9;border-color:#c4b5fd}.hbtn:hover{background:#f5f3ff}
+.cbtn{color:#b45309;border-color:#fcd34d}.cbtn:hover{background:#fffbeb}
+.hbox{display:none;background:#f5f3ff;border:1px solid #ddd6fe;border-radius:var(--rs);padding:.7rem 1rem;font-size:.86rem;color:#4c1d95;line-height:1.6;margin-bottom:.8rem}
+.hbox.show{display:block;animation:fs .2s ease}
+.cnbox{display:none;background:#fffbeb;border:1px solid #fde68a;border-radius:var(--rs);padding:.7rem 1rem;margin-bottom:.8rem}
+.cnbox.show{display:block;animation:fs .2s ease}
+.cntitle{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#92400e;margin-bottom:.55rem}
+.cnrow{display:flex;align-items:baseline;gap:.45rem;margin-bottom:.3rem;flex-wrap:wrap}
+.cnen{font-size:.86rem;font-weight:500;color:#92400e}
+.cnzh{font-size:.98rem;color:#d97706;font-weight:600;letter-spacing:.05em}
+.cnpy{font-size:.77rem;color:#b45309;font-style:italic}
+@keyframes fs{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;align-items:flex-start;gap:11px;padding:11px 13px;border-radius:var(--rs);border:1.5px solid var(--bd);cursor:pointer;transition:all .15s;background:var(--sf);font-size:.9rem;line-height:1.52}
+.opt:hover:not(.dis){border-color:#94a3b8;background:#f8fafc}
+.olt{font-family:'Syne',sans-serif;font-weight:700;font-size:.78rem;width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--sf2);color:var(--mu);transition:all .15s;margin-top:1px}
+.opt.sel{border-color:#94a3b8;background:#f8fafc}.opt.sel .olt{background:var(--tx);color:#fff}
+.opt.cor{border-color:var(--ok);background:#f0fdf4}.opt.cor .olt{background:var(--ok);color:#fff}
+.opt.wrg{border-color:var(--no);background:#fef2f2}.opt.wrg .olt{background:var(--no);color:#fff}
+.opt.dis{cursor:default}
+.fb{margin-top:.8rem;padding:.75rem .95rem;border-radius:var(--rs);font-size:.86rem;line-height:1.6;display:none}
+.fb.show{display:block}
+.fb.cfb{background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d}
+.fb.wfb{background:#fef2f2;border:1px solid #fecaca;color:#991b1b}
+.chkbtn{width:100%;margin-top:1.1rem;padding:13px;font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;border:none;border-radius:var(--r);cursor:pointer;transition:all .2s;letter-spacing:.025em;color:#fff}
+.chkbtn:disabled{opacity:.35;cursor:not-allowed}
+.nrow{display:none;justify-content:flex-end;margin-top:.7rem}
+.nbtn{font-family:'Syne',sans-serif;font-size:.87rem;font-weight:700;padding:10px 24px;border-radius:100px;border:none;cursor:pointer;color:#fff;transition:all .18s}
+.results-page{display:none;max-width:680px;margin:0 auto;padding:3rem 1.5rem 5rem}
+.restt{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;margin-bottom:.3rem}
+.ressub{color:var(--mu);font-size:.92rem;margin-bottom:1.75rem}
+.res-score{font-family:'Syne',sans-serif;font-size:4.5rem;font-weight:800;line-height:1;margin-bottom:.2rem}
+.res-pct{color:var(--mu);font-size:.9rem;margin-bottom:1.75rem}
+.ts-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:2rem}
+.tsc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:1rem 1.1rem}
+.tscn{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;margin-bottom:.4rem}
+.tscbw{height:5px;background:var(--sf2);border-radius:3px;overflow:hidden;margin-bottom:.35rem}
+.tscbf{height:100%;border-radius:3px;width:0;transition:width 1.1s ease}
+.tscnum{font-size:.8rem;color:var(--mu)}
+.rbtns{display:flex;gap:8px;flex-wrap:wrap}
+.rbtn{font-family:'Syne',sans-serif;font-weight:700;font-size:.87rem;padding:10px 22px;border-radius:100px;cursor:pointer;transition:all .18s}
+.rbtn.rp{background:var(--tx);color:#fff;border:none}
+.rbtn.rs{background:var(--sf);border:1.5px solid var(--bd2);color:var(--tx)}
+.rbtn:hover{transform:translateY(-1px)}
+.mock-result-badge{display:inline-flex;align-items:center;gap:6px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;padding:6px 14px;border-radius:100px;margin-bottom:1.25rem}
+.nn{animation:nnP 2.3s infinite ease-in-out}
+@keyframes nnP{0%,100%{opacity:.2}50%{opacity:.9}}
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--sf3);border-radius:3px}
+
+@media(max-width:760px){
+  .hcards,.topic-picker{grid-template-columns:1fr 1fr}
+  .mock-grid,.cgrid{grid-template-columns:1fr}
+  .qhdr{gap:.45rem;padding:.75rem .8rem}
+  .qbody{padding:1.2rem .9rem 4rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-logo">G8 <span>ICT</span></div>
+  <div class="nav-tabs">
+    <button class="ntab on" onclick="goPg('home')">Home</button>
+    <button class="ntab" onclick="goPg('guide')">Study Guide</button>
+    <button class="ntab" onclick="goPg('quiz')">Practice Quiz</button>
+    <button class="ntab" onclick="goPg('mock')">Mock Tests</button>
+  </div>
+  <div class="ns"></div>
+</nav>
+
+<div id="pg-home" class="pg on">
+<div id="ph">
+  <div class="cbg" id="cbg"></div>
+  <div class="hc-wrap">
+    <div class="h-badge">AY 2025–2026 · End-of-Year Preparation</div>
+    <h1 class="h-title">G8 ICT<br><span>Study &amp; Quiz</span></h1>
+    <p class="h-sub">Master five key topics through structured notes, 65 practice questions, and 5 full mock tests — with hints and Chinese vocabulary support throughout.</p>
+    <div class="hcards">
+      <div class="hcard" style="--c:var(--gr)" onclick="goPgT('guide','gr')"><div class="hcard-i">🎨</div><div class="hcard-n">Graphics</div><div class="hcard-s">7 topics · 13 Qs</div></div>
+      <div class="hcard" style="--c:var(--nw)" onclick="goPgT('guide','nw')"><div class="hcard-i">🌐</div><div class="hcard-n">Networks</div><div class="hcard-s">7 topics · 13 Qs</div></div>
+      <div class="hcard" style="--c:var(--ai)" onclick="goPgT('guide','ai')"><div class="hcard-i">🤖</div><div class="hcard-n">AI &amp; ML</div><div class="hcard-s">6 topics · 13 Qs</div></div>
+      <div class="hcard" style="--c:var(--py)" onclick="goPgT('guide','py')"><div class="hcard-i">🐍</div><div class="hcard-n">Python</div><div class="hcard-s">6 topics · 13 Qs</div></div>
+      <div class="hcard" style="--c:var(--se)" onclick="goPgT('guide','sec')"><div class="hcard-i">🔒</div><div class="hcard-n">Security</div><div class="hcard-s">5 topics · 13 Qs</div></div>
+    </div>
+    <div class="h-actions">
+      <button class="btnp" onclick="goPg('guide')">Open Study Guide</button>
+      <button class="btns" onclick="goPg('quiz')">Practice Quiz →</button>
+      <button class="btns" onclick="goPg('mock')">Mock Tests →</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="pg-guide" class="pg">
+<div class="gl">
+  <div class="g-hero">
+    <h2>Study Guide</h2>
+    <p>Key concepts, definitions, comparisons, and real-world context. <span style="background:#dcfce7;color:#166534;font-size:11px;font-weight:700;padding:2px 8px;border-radius:100px;font-family:Syne,sans-serif">★ EXTENDED</span> boxes add extra depth beyond core syllabus.</p>
+  </div>
+  <div class="g-tnav">
+    <button class="gtnb" style="color:var(--gr);border-color:var(--gr)" onclick="scrollSec('gr')">🎨 Graphics</button>
+    <button class="gtnb" style="color:var(--nw);border-color:var(--nw)" onclick="scrollSec('nw')">🌐 Networks</button>
+    <button class="gtnb" style="color:var(--ai);border-color:var(--ai)" onclick="scrollSec('ai')">🤖 AI &amp; ML</button>
+    <button class="gtnb" style="color:var(--py);border-color:var(--py)" onclick="scrollSec('py')">🐍 Python</button>
+    <button class="gtnb" style="color:var(--se);border-color:var(--se)" onclick="scrollSec('sec')">🔒 Security</button>
+  </div>
+
+  <div class="tsec" id="sec-gr">
+    <div class="thdr"><div class="tico" style="background:#fef3c7">🎨</div><div><div class="ttitle" style="color:var(--gr)">Graphics</div><div class="tsub">Bitmap · Vector · Colour depth · Resolution · File formats · Visual communication</div></div></div>
+    <div class="gc"><div class="gct" style="color:var(--gr)">Bitmap images</div><div class="gcd">A bitmap stores an image as a fixed grid of coloured squares called pixels. When enlarged, pixels stretch and can become blurry or blocky.</div><ul class="kp"><li>Best for photographs, screenshots, scanned documents, and pixel art.</li><li>Formats include JPG, PNG, BMP, and GIF.</li><li>File size depends on width, height, and colour depth.</li></ul><div class="formula">File size (bits) = Width(px) × Height(px) × Colour depth(bpp)</div><div class="dbox"><div class="dl">Bitmap vs vector</div><canvas id="bmp-s" width="96" height="96" style="border-radius:6px;border:1.5px solid #fde68a;image-rendering:pixelated"></canvas></div></div>
+    <div class="gc"><div class="gct" style="color:var(--gr)">Vector images</div><div class="gcd">A vector stores shapes as mathematical coordinates, curves, lines, and fills. It can be resized without losing quality.</div><ul class="kp"><li>Best for logos, icons, diagrams, maps, and illustrations.</li><li>Common formats include SVG, AI, and EPS.</li><li>Not suitable for real photographs.</li></ul></div>
+    <div class="gc"><div class="gct" style="color:var(--gr)">File formats</div><div class="cgrid" style="grid-template-columns:repeat(4,1fr)"><div class="cbox"><h4>.jpg</h4><ul><li>Lossy</li><li>Photos</li><li>No transparency</li></ul></div><div class="cbox"><h4>.png</h4><ul><li>Lossless</li><li>Transparency</li><li>Logos/icons</li></ul></div><div class="cbox"><h4>.bmp</h4><ul><li>Uncompressed</li><li>Very large</li></ul></div><div class="cbox"><h4>.gif</h4><ul><li>Animation</li><li>256 colours</li></ul></div></div></div>
+  </div>
+
+  <div class="tsec" id="sec-nw">
+    <div class="thdr"><div class="tico" style="background:#e0f2fe">🌐</div><div><div class="ttitle" style="color:var(--nw)">Networks</div><div class="tsub">Devices · Bandwidth · Topologies · Cloud · URLs · DNS</div></div></div>
+    <div class="gc"><div class="gct" style="color:var(--nw)">Network devices</div><ul class="kp"><li>Router: connects different networks, such as home network to internet.</li><li>Switch: sends data only to the intended device.</li><li>Hub: broadcasts data to every device.</li><li>Modem: converts ISP signals into usable network data.</li></ul></div>
+    <div class="gc"><div class="gct" style="color:var(--nw)">Network topologies</div><div class="dbox"><div class="dl">Click to compare</div><div style="display:flex;gap:8px;margin-bottom:.8rem;flex-wrap:wrap"><button onclick="gTopo('bus')">Bus</button><button onclick="gTopo('star')">Star</button><button onclick="gTopo('ring')">Ring</button></div><svg id="g-topo" width="100%" viewBox="0 0 420 155"></svg><div id="g-topo-d" style="font-size:12px;color:var(--mu);margin-top:.55rem;line-height:1.55"></div></div></div>
+    <div class="gc"><div class="gct" style="color:var(--nw)">DNS and URLs</div><div class="gcd">DNS translates domain names into IP addresses. A URL contains parts such as subdomain, domain, top-level domain, path, and file name.</div></div>
+  </div>
+
+  <div class="tsec" id="sec-ai">
+    <div class="thdr"><div class="tico" style="background:#ede9fe">🤖</div><div><div class="ttitle" style="color:var(--ai)">AI &amp; Machine Learning</div><div class="tsub">Traditional AI · Generative AI · ML · Neural Networks · LLMs · Ethics</div></div></div>
+    <div class="gc"><div class="gct" style="color:var(--ai)">Traditional AI vs Generative AI</div><div class="cgrid"><div class="cbox"><h4>Traditional AI</h4><ul><li>Specific tasks</li><li>Classifies, filters, predicts</li><li>Spam filter, chess engine</li></ul></div><div class="cbox"><h4>Generative AI</h4><ul><li>Creates new content</li><li>Text, image, music, code</li><li>ChatGPT, DALL·E</li></ul></div></div></div>
+    <div class="gc"><div class="gct" style="color:var(--ai)">Machine learning</div><ul class="kp"><li>Supervised learning uses labelled data.</li><li>Unsupervised learning finds patterns in unlabelled data.</li><li>Reinforcement learning learns through rewards and penalties.</li></ul></div>
+  </div>
+
+  <div class="tsec" id="sec-py">
+    <div class="thdr"><div class="tico" style="background:#dcfce7">🐍</div><div><div class="ttitle" style="color:var(--py)">Python Programming</div><div class="tsub">Data types · Input/output · Operators · Conditionals · Loops · Functions</div></div></div>
+    <div class="gc"><div class="gct" style="color:var(--py)">Variables and data types</div><ul class="kp"><li>str: text in quotes.</li><li>int: whole numbers.</li><li>float: decimal numbers.</li><li>bool: True or False.</li></ul><div class="warn"><code>input()</code> always returns a string.</div></div>
+    <div class="gc"><div class="gct" style="color:var(--py)">Conditionals</div><div class="codeblk">score = 85<br><span class="ck">if</span> score &gt;= 90:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="ck">print</span>(<span class="cs">"A"</span>)<br><span class="ck">elif</span> score &gt;= 70:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="ck">print</span>(<span class="cs">"B"</span>)<br><span class="ck">else</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="ck">print</span>(<span class="cs">"C"</span>)</div></div>
+  </div>
+
+  <div class="tsec" id="sec-sec">
+    <div class="thdr"><div class="tico" style="background:#fee2e2">🔒</div><div><div class="ttitle" style="color:var(--se)">Cybersecurity</div><div class="tsub">Encryption · Shift cipher · Email fraud · Online safety · Digital footprint</div></div></div>
+    <div class="gc"><div class="gct" style="color:var(--se)">Encryption</div><div class="gcd">Encryption converts readable plaintext into scrambled ciphertext using an algorithm and key.</div></div>
+    <div class="gc"><div class="gct" style="color:var(--se)">Shift cipher</div><div class="dbox"><div class="dl">Live encoder</div><input type="range" id="gs" min="1" max="13" value="3" oninput="gsCipher()"> <span id="gsv">3</span><div id="gpr" style="display:grid;grid-template-columns:repeat(26,1fr);gap:2px;min-width:480px;margin-top:8px"></div><div id="gcr" style="display:grid;grid-template-columns:repeat(26,1fr);gap:2px;min-width:480px;margin-top:4px"></div><div style="margin-top:8px">HELLO → <span id="gce"></span></div></div></div>
+  </div>
+
+  <div style="text-align:center;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--bd)">
+    <button class="btnp" onclick="goPg('quiz')">Start Practice Quiz →</button>
+    <button class="btns" style="margin-left:10px" onclick="goPg('mock')">Take a Mock Test →</button>
+  </div>
+</div>
+</div>
+
+<div id="pg-quiz" class="pg">
+  <div id="pq-start" class="qstart">
+    <div class="qst">Practice Quiz</div>
+    <p class="qss">Each topic is divided into 5 sets of 10 questions. Choose all topics or select specific topics, then choose Set 1–5. Hints and Chinese vocab are included on every question.</p>
+    <div class="mode-row">
+      <button class="mb on" id="mb-all" onclick="setQMode('all')">All topics</button>
+      <button class="mb" id="mb-topic" onclick="setQMode('topic')">Choose topics</button>
+    </div>
+    <div class="set-picker" id="set-picker">
+      <button class="setbtn on" id="setbtn-1" onclick="setQSet(1)">Set 1<br><span>10 Q/topic</span></button>
+      <button class="setbtn" id="setbtn-2" onclick="setQSet(2)">Set 2<br><span>10 Q/topic</span></button>
+      <button class="setbtn" id="setbtn-3" onclick="setQSet(3)">Set 3<br><span>10 Q/topic</span></button>
+      <button class="setbtn" id="setbtn-4" onclick="setQSet(4)">Set 4<br><span>10 Q/topic</span></button>
+      <button class="setbtn" id="setbtn-5" onclick="setQSet(5)">Set 5<br><span>10 Q/topic</span></button>
+    </div>
+    <div class="set-hint" id="set-hint">Current selection: Set 1 · All 5 topics · 50 questions total</div>
+    <div class="topic-picker" id="topic-picker">
+      <div class="tsel on" data-t="gr" style="--c:var(--gr);border-color:var(--gr)" onclick="togT(this)"><div class="tsel-i">🎨</div><div class="tsel-n" style="color:var(--gr)">Graphics</div></div>
+      <div class="tsel on" data-t="nw" style="--c:var(--nw);border-color:var(--nw)" onclick="togT(this)"><div class="tsel-i">🌐</div><div class="tsel-n" style="color:var(--nw)">Networks</div></div>
+      <div class="tsel on" data-t="ai" style="--c:var(--ai);border-color:var(--ai)" onclick="togT(this)"><div class="tsel-i">🤖</div><div class="tsel-n" style="color:var(--ai)">AI &amp; ML</div></div>
+      <div class="tsel on" data-t="py" style="--c:var(--py);border-color:var(--py)" onclick="togT(this)"><div class="tsel-i">🐍</div><div class="tsel-n" style="color:var(--py)">Python</div></div>
+      <div class="tsel on" data-t="sec" style="--c:var(--se);border-color:var(--se)" onclick="togT(this)"><div class="tsel-i">🔒</div><div class="tsel-n" style="color:var(--se)">Security</div></div>
+    </div>
+    <button class="btnp" onclick="startPQ()">Start Quiz →</button>
+  </div>
+  <div id="pq-active" style="display:none">
+    <div class="qhdr"><div class="qpw"><div class="qpf" id="pqpf"></div></div><div class="qctr" id="pqctr"></div><div class="qsc" id="pqsc"></div></div>
+    <div class="qbody" id="pqbody"></div>
+  </div>
+  <div id="pq-results" class="results-page" style="padding-top:2rem">
+    <div class="restt" id="prt"></div><p class="ressub" id="prs"></p><div class="res-score" id="prsc"></div><div class="res-pct" id="prpct"></div><div class="ts-grid" id="prts"></div>
+    <div class="rbtns"><button class="rbtn rp" onclick="startPQ()">Try again</button><button class="rbtn rs" onclick="backPQS()">Change topics</button><button class="rbtn rs" onclick="goPg('mock')">Try a Mock Test</button><button class="rbtn rs" onclick="goPg('guide')">Study Guide</button></div>
+  </div>
+</div>
+
+<div id="pg-mock" class="pg">
+  <div id="mk-start" class="qstart" style="max-width:720px"><div class="qst">Mock Tests</div><p class="qss">5 full exam-style mock tests — 20 questions each, 30-minute timer, mixed topics.</p><div class="mock-grid" id="mock-grid"></div></div>
+  <div id="mk-active" style="display:none"><div class="qhdr"><div class="qpw"><div class="qpf" id="mkpf"></div></div><div class="qctr" id="mkctr"></div><div class="qsc" id="mksc"></div><div id="timer-txt">30:00</div></div><div class="timer-wrap" id="timer-bar-wrap" style="display:block"><div class="timer-fill" id="timer-fill" style="width:100%"></div></div><div class="qbody" id="mkbody"></div></div>
+  <div id="mk-results" class="results-page" style="padding-top:2rem;display:none"><div class="restt" id="mrt"></div><p class="ressub" id="mrs"></p><div class="res-score" id="mrsc"></div><div class="res-pct" id="mrpct"></div><div class="ts-grid" id="mrts"></div><div class="rbtns"><button class="rbtn rp" id="mk-retry-btn">Retry this test</button><button class="rbtn rs" onclick="backMKS()">All mock tests</button><button class="rbtn rs" onclick="goPg('quiz')">Practice Quiz</button><button class="rbtn rs" onclick="goPg('guide')">Study Guide</button></div></div>
+</div>
+
+<script>
+const TOPIC_INFO={
+  gr:{tl:'Graphics',thx:'#d97706',ti:'🎨'},
+  nw:{tl:'Networks',thx:'#0891b2',ti:'🌐'},
+  ai:{tl:'AI & ML',thx:'#7c3aed',ti:'🤖'},
+  py:{tl:'Python',thx:'#16a34a',ti:'🐍'},
+  sec:{tl:'Security',thx:'#dc2626',ti:'🔒'}
+};
+
+const BANK = [
+{tid:'gr',q:'A bitmap image is 200px wide × 100px tall with a colour depth of 8 bits per pixel. What is its uncompressed file size in bits?',o:['160,000','200,000','800','16,000,000'],ans:0,hint:'Width × Height × colour depth. 200 × 100 = 20,000 pixels × 8 bits.',cn:[{e:'colour depth',z:'色彩深度',p:'sècǎi shēndù'},{e:'pixel',z:'像素',p:'xiàngsù'}],fb:'200 × 100 = 20,000 pixels. 20,000 × 8 bits = 160,000 bits.'},
+{tid:'gr',q:'Which image type is made of mathematical paths and coordinates rather than a grid of pixels?',o:['Bitmap','Raster','Vector','JPEG'],ans:2,hint:'Think about which type stores shapes as equations rather than pixel-by-pixel colour values.',cn:[{e:'vector',z:'矢量图',p:'shǐliàng tú'},{e:'path',z:'路径',p:'lùjìng'}],fb:'Vector images store shapes as mathematical equations, coordinates, curves, and properties.'},
+{tid:'gr',q:'A 1-bit image can display how many different colours?',o:['1','2','8','256'],ans:1,hint:'Formula: 2ⁿ where n = bits. What is 2¹?',cn:[{e:'bit',z:'位',p:'wèi'},{e:'colour',z:'颜色',p:'yánsè'}],fb:'2¹ = 2. A 1-bit pixel can be black or white.'},
+{tid:'gr',q:'A logo design must be used on both a 4cm business card and a 3-metre billboard. What image type should the designer use and why?',o:['Bitmap — because it has higher colour accuracy at small sizes','Vector — because it recalculates mathematically at any size with no quality loss','JPEG — because it compresses efficiently for large formats','PNG — because it supports the transparent background needed'],ans:1,hint:'Which format never pixelates no matter how large it is printed?',cn:[{e:'scalable',z:'可缩放的',p:'kě suōfàng de'}],fb:'Vector is correct because it can scale to any size without losing quality.'},
+{tid:'gr',q:'What does PPI stand for, and what does it measure?',o:['Pixels Per Image — total pixels in one image file','Pixels Per Inch — pixel density/resolution of an image','Points Per Inch — the font size in a document','Processing Power Index — how fast a graphics card works'],ans:1,hint:'PPI describes how densely packed the pixels are in a given measurement.',cn:[{e:'resolution',z:'分辨率',p:'fēnbiànlǜ'}],fb:'PPI = Pixels Per Inch. It measures pixel density.'},
+{tid:'gr',q:'What is the main visual difference between a 2-bit image and an 8-bit image?',o:['2-bit images are smaller on screen','2-bit images have only 4 colours; 8-bit images have 256 colours','2-bit images load faster in web browsers','There is no visible difference — only file size changes'],ans:1,hint:'Calculate: 2² vs 2⁸.',cn:[{e:'colour range',z:'色域',p:'sèyù'}],fb:'2² = 4 colours. 2⁸ = 256 colours.'},
+{tid:'gr',q:'Which of the following is lossless compression?',o:['JPEG compression','.png compression','MP3 audio compression','MPEG video compression'],ans:1,hint:'PNG keeps every single bit of original data when compressing.',cn:[{e:'lossless',z:'无损',p:'wúsǔn'}],fb:'PNG uses lossless compression.'},
+{tid:'gr',q:'An image is saved as .jpg, edited, and saved as .jpg again — five times total. What is the likely result?',o:['No change — saving preserves original quality','The file size doubles each time','Image quality gradually degrades each time due to repeated lossy compression','The file automatically converts to PNG after multiple saves'],ans:2,hint:'JPEG is lossy — each save discards data permanently.',cn:[{e:'lossy',z:'有损',p:'yǒusǔn'}],fb:'Repeated JPEG saving causes generation loss.'},
+{tid:'gr',q:'Which file format should be used for a website icon that needs a transparent background?',o:['.jpg','.bmp','.png','.gif (animation only)'],ans:2,hint:'Which format supports an alpha channel for transparency?',cn:[{e:'transparent',z:'透明的',p:'tòumíng de'}],fb:'PNG supports transparency.'},
+{tid:'gr',q:'A graphic designer increases a bitmap image resolution from 100ppi to 200ppi without changing the physical dimensions. What happens to the file?',o:['File size stays the same','File size halves — fewer pixels per inch','File size quadruples — four times as many pixels are stored','The image automatically becomes a vector'],ans:2,hint:'200ppi has 2× pixels per inch in each direction.',cn:[{e:'quadruple',z:'四倍',p:'sì bèi'}],fb:'Doubling PPI in both directions gives four times as many pixels.'},
+{tid:'gr',q:'SVG is described as a web standard for vector graphics. What does SVG stand for?',o:['Standard Visual Graphic','Scanned Vector Grid','Scalable Vector Graphic','Stored Visual Geometry'],ans:2,hint:'The S refers to the key advantage of vector.',cn:[{e:'scalable',z:'可缩放',p:'kě suōfàng'}],fb:'SVG = Scalable Vector Graphic.'},
+{tid:'gr',q:'In visual communication, a bright red background in an advertisement most commonly conveys:',o:['Calmness and trust','Urgency, energy, or danger','Environmental friendliness','Sadness or nostalgia'],ans:1,hint:'Red is used in warning signs and sale banners.',cn:[{e:'urgency',z:'紧迫感',p:'jǐnpò gǎn'}],fb:'Red often communicates urgency, danger, or energy.'},
+{tid:'gr',q:'Which of the following is TRUE about GIF images?',o:['GIF supports millions of colours like JPEG','GIF supports animation and up to 256 colours per frame','GIF files are always larger than PNG files','GIF uses lossy compression like JPEG'],ans:1,hint:'GIF has two special features.',cn:[{e:'animation',z:'动画',p:'dònghuà'}],fb:'GIF supports animation and up to 256 colours per frame.'},
+
+{tid:'nw',q:'What is the main technical advantage of a network switch over a hub?',o:['A switch is always wireless; a hub requires cables','A switch uses IP addresses; a hub uses MAC addresses','A switch sends data only to the intended device; a hub broadcasts to all devices','A switch connects to the internet; a hub only connects local devices'],ans:2,hint:'One device is smart and targeted; the other shouts to everyone.',cn:[{e:'switch',z:'交换机',p:'jiāohuànjī'}],fb:'A switch sends packets to the intended device; a hub broadcasts to all.'},
+{tid:'nw',q:'Why can fibre optic cables transmit data faster than copper cables?',o:['Fibre optic cables are physically thicker so more data fits inside','Fibre optic transmits light signals, which travel faster and are unaffected by electromagnetic interference','Fibre optic uses two cables running in parallel to double speed','Fibre optic cables have built-in signal amplifiers every few metres'],ans:1,hint:'What physical medium does fibre optic use?',cn:[{e:'fibre optic',z:'光纤',p:'guāngxiān'}],fb:'Fibre optic carries data as light and is immune to electromagnetic interference.'},
+{tid:'nw',q:'In a star topology, what happens if the central switch fails?',o:['Only the device closest to the switch loses connection','The entire network loses connectivity because all devices connect through that switch','Each device automatically reconnects to its nearest neighbour','Half the devices stay connected; the other half lose connection'],ans:1,hint:'Every device passes through the central switch.',cn:[{e:'star topology',z:'星形拓扑',p:'xīngxíng tuòpū'}],fb:'The central switch is the single point of failure.'},
+{tid:'nw',q:'Which connection type is MOST susceptible to signal degradation from obstacles like walls?',o:['Fibre optic','Coaxial cable','CAT5 twisted pair','Wi-Fi (wireless)'],ans:3,hint:'Which connection type does not use a physical cable?',cn:[{e:'wireless',z:'无线',p:'wúxiàn'}],fb:'Wi-Fi radio waves are weakened by walls, distance, and interference.'},
+{tid:'nw',q:'A network has 500Mbps bandwidth. A file is 250MB. Approximately how long should the transfer take? Ignore overhead.',o:['0.5 seconds','4 seconds','250 seconds','500 seconds'],ans:1,hint:'Convert MB to Mb first: 1 byte = 8 bits.',cn:[{e:'bandwidth',z:'带宽',p:'dàikuān'}],fb:'250 MB = 2,000 Mb. 2,000 ÷ 500 = 4 seconds.'},
+{tid:'nw',q:'What does DNS stand for and what does it do?',o:['Data Network Switch — routes packets between switches','Domain Name System — translates domain names into IP addresses','Digital Node Server — assigns IP addresses to new devices','Dynamic Network Settings — configures router settings automatically'],ans:1,hint:'It is like the internet phone book.',cn:[{e:'DNS',z:'域名系统',p:'yùmíng xìtǒng'}],fb:'DNS translates domain names into IP addresses.'},
+{tid:'nw',q:'Which of the following is a disadvantage of using cloud storage?',o:['Files cannot be shared with other users','Access requires an internet connection','Files can only be stored as documents, not images','Cloud storage always costs more than a USB drive'],ans:1,hint:'What do you need before accessing cloud files?',cn:[{e:'cloud storage',z:'云存储',p:'yún cúnchú'}],fb:'Cloud storage requires an internet connection.'},
+{tid:'nw',q:'In a client-server network, where is data centrally stored and managed?',o:['On each user local computer','On the central server','On a cloud service','Distributed equally across all devices'],ans:1,hint:'Client-server networks have one central authority.',cn:[{e:'central server',z:'中央服务器',p:'zhōngyāng fúwùqì'}],fb:'The server stores and manages data centrally.'},
+{tid:'nw',q:'What is the difference between bandwidth and latency?',o:['They are both ways of measuring the same thing in different units','Bandwidth measures maximum data per second; latency measures the delay for a single packet','Latency measures maximum data; bandwidth measures delay','Bandwidth is for wired networks; latency is for wireless'],ans:1,hint:'Bandwidth = road width. Latency = delay.',cn:[{e:'latency',z:'延迟',p:'yánchí'}],fb:'Bandwidth is capacity; latency is delay.'},
+{tid:'nw',q:'Which URL part identifies the country where the website is registered? https://www.moph.go.th/index.php',o:['www','moph','go','.th'],ans:3,hint:'Country codes are two-letter codes at the end.',cn:[{e:'country code',z:'国家代码',p:'guójiā dàimǎ'}],fb:'.th is Thailand country-code top-level domain.'},
+{tid:'nw',q:'A school uses client-server architecture. What is the main advantage over a P2P setup?',o:['It requires no administrator to manage','Students can connect directly to each other without going through the server','Data is backed up centrally on the server, making recovery easier after device failure','Every device in the network is equally powerful'],ans:2,hint:'Think about what happens when a student laptop breaks.',cn:[{e:'backup',z:'备份',p:'bèifèn'}],fb:'Central backup makes recovery easier.'},
+{tid:'nw',q:'What does HTTPS provide that standard HTTP does not?',o:['Faster page loading','Encrypted connection between browser and server','Free hosting for websites','Guaranteed website uptime of 99.9%'],ans:1,hint:'The S means Secure.',cn:[{e:'encrypted',z:'加密的',p:'jiāmì de'}],fb:'HTTPS uses encryption between browser and server.'},
+{tid:'nw',q:'Buffering in a video stream occurs because:',o:['The video file is corrupted','The screen refresh rate is too high for the video','Data is arriving more slowly than the video is being played back','The video codec is not supported by the browser'],ans:2,hint:'Buffer means storing ahead.',cn:[{e:'buffering',z:'缓冲',p:'huǎnchōng'}],fb:'Buffering happens when data arrives too slowly for playback.'},
+
+{tid:'ai',q:'Which of the following is an example of Generative AI?',o:['A spam filter sorting emails into junk','A map app calculating the fastest route home','An AI that creates background music from a text description','A chess engine evaluating board positions'],ans:2,hint:'Generative AI creates new content.',cn:[{e:'generative AI',z:'生成式人工智能',p:'shēngchéng shì réngōng zhìnéng'}],fb:'Creating music from text is generative AI.'},
+{tid:'ai',q:'What is supervised machine learning?',o:['A human monitors the AI at all times during operation','The AI learns from labelled examples where correct outputs are already provided','The AI supervises other AI systems to check accuracy','The model learns by trial and error without any provided examples'],ans:1,hint:'The key word is labelled.',cn:[{e:'labelled data',z:'标注数据',p:'biāozhù shùjù'}],fb:'Supervised learning uses labelled input-output examples.'},
+{tid:'ai',q:'What is AI hallucination?',o:['When the AI generates images instead of text','When an AI produces plausible-sounding but factually incorrect information with confidence','When the AI server crashes due to overload','When the AI repeats the same response in a loop'],ans:1,hint:'It sounds sure but is not true.',cn:[{e:'hallucination',z:'幻觉',p:'huànjué'}],fb:'Hallucination is confident but incorrect output.'},
+{tid:'ai',q:'Why is training data diversity important in machine learning?',o:['Larger datasets always make the AI run faster','Diverse data prevents bias — the model must work fairly across all groups it encounters','More diverse data reduces storage cost','Diversity helps the AI generate more creative outputs'],ans:1,hint:'What happens if a group is missing during training?',cn:[{e:'bias',z:'偏差',p:'piānchā'}],fb:'Diverse data reduces bias and improves fairness.'},
+{tid:'ai',q:'What does tokenization do in the context of LLMs?',o:['Converts output into cryptocurrency tokens','Breaks text into smaller units that the model processes as numbers','Translates input into the AI training language','Encrypts messages before processing'],ans:1,hint:'Tokens are small text building blocks.',cn:[{e:'tokenization',z:'分词',p:'fēncí'}],fb:'Tokenization breaks text into token units and maps them to numbers.'},
+{tid:'ai',q:'A music streaming app learns your preferences and suggests similar songs. This is BEST described as:',o:['Generative AI — it creates new music for you','Traditional ML — it classifies preferences and matches patterns','Reinforcement learning — it learns from rewards you give it','Unsupervised learning — it has no data about your taste'],ans:1,hint:'Is it creating music or matching patterns?',cn:[{e:'recommendation',z:'推荐',p:'tuījiàn'}],fb:'Recommendation systems match patterns in user behaviour.'},
+{tid:'ai',q:'In an artificial neural network, what happens during training?',o:['Programmers manually set every possible output','The network adjusts connection weights based on prediction error','The network searches the internet for correct answers','The programmer selects which neurons activate'],ans:1,hint:'Training adjusts connection strengths.',cn:[{e:'weight',z:'权重',p:'quánzhòng'}],fb:'Training adjusts weights to reduce error.'},
+{tid:'ai',q:'What is reinforcement learning?',o:['Learning from labelled examples','Learning by taking actions and receiving rewards or penalties','Memorising all examples','Using multiple AI models to reinforce outputs'],ans:1,hint:'Like reward-based training.',cn:[{e:'reward',z:'奖励',p:'jiǎnglì'}],fb:'Reinforcement learning learns through rewards and penalties.'},
+{tid:'ai',q:'Which is the most accurate description of a Large Language Model?',o:['A database storing every sentence ever written','A rules-based chatbot following a fixed tree','A large neural network trained to predict the most likely next token','A tool that converts between programming languages'],ans:2,hint:'LLMs are prediction engines.',cn:[{e:'predict',z:'预测',p:'yùcè'}],fb:'An LLM predicts likely next tokens.'},
+{tid:'ai',q:'A student generates an essay using AI and submits it as their own without acknowledgement. This is:',o:['Acceptable because AI is a tool','Acceptable because AI output is free','Academic dishonesty','Unacceptable only if detected'],ans:2,hint:'The issue is whose thinking the work represents.',cn:[{e:'academic honesty',z:'学术诚信',p:'xuéshù chéngxìn'}],fb:'Submitting AI work as your own is academic dishonesty.'},
+{tid:'ai',q:'What is the context window of an LLM?',o:['The screen area displaying response','The maximum amount of text the model can process at one time','The number of languages supported','The time limit before conversation ends'],ans:1,hint:'Think of short-term memory.',cn:[{e:'context window',z:'上下文窗口',p:'shàngxiàwén chuāngkǒu'}],fb:'The context window limits how much text the model can reference.'},
+{tid:'ai',q:'The EU AI Act classifies AI systems by risk level. Which type is highest risk?',o:['Video game NPC AI','AI used in hiring, credit scoring, or law enforcement','Auto-correct spelling','Playlist ordering'],ans:1,hint:'High risk affects people lives and rights.',cn:[{e:'high risk',z:'高风险',p:'gāo fēngxiǎn'}],fb:'Hiring, credit, and law enforcement systems are high risk.'},
+{tid:'ai',q:'Traditional AI and Generative AI differ most fundamentally in that:',o:['Traditional AI uses electricity; Generative AI does not','Traditional AI requires more computing power','Generative AI can produce new creative content; Traditional AI executes fixed tasks','Traditional AI is always more accurate'],ans:2,hint:'One creates; one classifies or follows rules.',cn:[{e:'fixed rules',z:'固定规则',p:'gùdìng guīzé'}],fb:'Generative AI creates new content.'},
+
+{tid:'py',q:'What data type does Python input() always return?',o:['integer','float','string','boolean'],ans:2,hint:'Even if the user types a number, Python stores it as this type.',cn:[{e:'string',z:'字符串',p:'zìfúchuàn'}],fb:'input() always returns a string.'},
+{tid:'py',q:'What error does this code produce?\n\nx = "10"\nprint(x + 5)',o:['SyntaxError','NameError','TypeError — cannot concatenate str and int','No error — prints 15'],ans:2,hint:'x is a string. Can you add string and integer?',cn:[{e:'TypeError',z:'类型错误',p:'lèixíng cuòwù'}],fb:'Python raises TypeError because string and integer cannot be added directly.'},
+{tid:'py',q:'What is the result of: print(2 ** 10)',o:['20','102','512','1024'],ans:3,hint:'** means power.',cn:[{e:'exponentiation',z:'幂运算',p:'mì yùnsuàn'}],fb:'2**10 = 1024.'},
+{tid:'py',q:'What does range(2, 10, 3) generate?',o:['2, 3, 4, 5, 6, 7, 8, 9, 10','2, 5, 8','2, 5, 8, 11','3, 6, 9'],ans:1,hint:'range(start, stop, step). Stop before 10.',cn:[{e:'step',z:'步长',p:'bùcháng'}],fb:'It generates 2, 5, 8.'},
+{tid:'py',q:'Which symbol is used for comments in Python?',o:['//','/* */','#','--'],ans:2,hint:'Python uses a number sign.',cn:[{e:'comment',z:'注释',p:'zhùshì'}],fb:'# starts a Python comment.'},
+{tid:'py',q:'What is the output?\n\nfor i in range(4):\n    print(i)',o:['1, 2, 3, 4','0, 1, 2, 3, 4','0, 1, 2, 3','1, 2, 3'],ans:2,hint:'range(4) starts at 0 and stops before 4.',cn:[{e:'loop',z:'循环',p:'xúnhuán'}],fb:'range(4) gives 0, 1, 2, 3.'},
+{tid:'py',q:'What is the result of: print(18 % 5)',o:['3','3.6','2','4'],ans:0,hint:'% returns remainder.',cn:[{e:'remainder',z:'余数',p:'yúshù'}],fb:'18 divided by 5 leaves remainder 3.'},
+{tid:'py',q:'What is the difference between = and == in Python?',o:['They are interchangeable','= assigns a value; == checks equality','== assigns; = checks equality','= works for numbers; == works for strings'],ans:1,hint:'One stores; one compares.',cn:[{e:'assignment',z:'赋值',p:'fùzhí'}],fb:'= is assignment. == is equality comparison.'},
+{tid:'py',q:'What is the output?\n\nx = 15\nif x > 20:\n    print("A")\nelif x > 10:\n    print("B")\nelse:\n    print("C")',o:['A','B','A and B','C'],ans:1,hint:'Python stops at the first True condition.',cn:[{e:'condition',z:'条件',p:'tiáojiàn'}],fb:'x > 10 is true, so it prints B.'},
+{tid:'py',q:'How do you correctly convert user text input to a floating-point number?',o:['score = input(float("Enter: "))','score = float("Enter: ")','score = float(input("Enter: "))','score = input.float("Enter: ")'],ans:2,hint:'float() wraps around input().',cn:[{e:'convert',z:'转换',p:'zhuǎnhuàn'}],fb:'float(input("Enter: ")) is correct.'},
+{tid:'py',q:'What does the return statement do in a function?',o:['Prints the value to the screen','Ends the entire program','Sends a value back to the code that called the function','Repeats the function from the beginning'],ans:2,hint:'Return is what comes out of the function.',cn:[{e:'return',z:'返回值',p:'fǎnhuí zhí'}],fb:'return sends a value back to the caller.'},
+{tid:'py',q:'What error results from writing: Print("Hello") in Python?',o:['SyntaxError — missing parentheses','TypeError — wrong argument type','NameError — Print is not defined','No error — Python accepts both Print and print'],ans:2,hint:'Python is case-sensitive.',cn:[{e:'case-sensitive',z:'区分大小写',p:'qūfēn dàxiǎoxiě'}],fb:'Python is case-sensitive; print is lowercase.'},
+{tid:'py',q:'What is the output of: print(10 // 3)',o:['3.33','3','4','1'],ans:1,hint:'// is floor division.',cn:[{e:'floor division',z:'整除',p:'zhěngchú'}],fb:'10 // 3 = 3.'},
+
+{tid:'sec',q:'What is the correct definition of encryption?',o:['Storing multiple copies of data','Converting readable data into scrambled data using an algorithm and key','Scanning files for viruses','Compressing files'],ans:1,hint:'Think about making data unreadable.',cn:[{e:'encryption',z:'加密',p:'jiāmì'}],fb:'Encryption converts plaintext into ciphertext using an algorithm and key.'},
+{tid:'sec',q:'Using a Caesar cipher with shift 3, what does A encrypt to?',o:['B','C','D','F'],ans:2,hint:'Count 3 letters forward from A.',cn:[{e:'shift cipher',z:'移位密码',p:'yíwèi mìmǎ'}],fb:'A shifted by 3 becomes D.'},
+{tid:'sec',q:'Using a Caesar cipher with shift 4, decode the letter H.',o:['C','D','E','F'],ans:1,hint:'To decode, subtract the shift.',cn:[{e:'decode',z:'解码',p:'jiěmǎ'}],fb:'H shifted backward by 4 becomes D.'},
+{tid:'sec',q:'An email appears to be from PayPal but the sender is support@paypal-secure-help.net. This is most likely:',o:['A genuine PayPal alert','A phishing attack','Advanced fee fraud','A Trojan horse'],ans:1,hint:'Is the domain actually paypal.com?',cn:[{e:'phishing',z:'网络钓鱼',p:'wǎngluò diàoyú'}],fb:'A fake domain impersonating PayPal is phishing.'},
+{tid:'sec',q:'What makes two-factor authentication more secure than a password alone?',o:['It forces longer passwords','Even if a password is stolen, the attacker needs the second factor','It changes your password daily','It encrypts the password'],ans:1,hint:'2FA adds a second layer.',cn:[{e:'two-factor authentication',z:'双重身份验证',p:'shuāngchóng shēnfèn yànzhèng'}],fb:'2FA protects accounts even if the password is stolen.'},
+{tid:'sec',q:'A Trojan horse is malware that disguises itself. What does this mean?',o:['It hides inside hardware','It appears legitimate but performs malicious actions once installed','It pretends to be an email from a company','It makes itself invisible'],ans:1,hint:'Like the Greek myth.',cn:[{e:'Trojan horse',z:'木马程序',p:'mùmǎ chéngxù'}],fb:'A Trojan appears safe but does harmful things once installed.'},
+{tid:'sec',q:'Which password is strongest?',o:['password123','Bangkok!','mT$4#pLz@9qK','student2025'],ans:2,hint:'Look for length, symbols, no dictionary words.',cn:[{e:'strong password',z:'强密码',p:'qiáng mìmǎ'}],fb:'mT$4#pLz@9qK is strongest.'},
+{tid:'sec',q:'Someone emails claiming they are stranded and needs $500 urgently with a promise to repay. This is most likely:',o:['A genuine emergency','Phishing','Advanced fee fraud','A Trojan horse attack'],ans:2,hint:'A personal story requesting money is a classic scam.',cn:[{e:'advance fee fraud',z:'预付费欺诈',p:'yùfù fèi qīzhà'}],fb:'This is advanced fee fraud.'},
+{tid:'sec',q:'What does the padlock icon in a browser address bar indicate?',o:['The website is owned by government','The connection is encrypted using HTTPS','The site was checked in the last 24 hours','The site loads faster'],ans:1,hint:'Padlock = HTTPS.',cn:[{e:'padlock',z:'挂锁图标',p:'guàsuǒ túbiāo'}],fb:'The padlock indicates HTTPS encryption.'},
+{tid:'sec',q:'Why is reusing the same password across websites dangerous?',o:['Duplicate passwords expire faster','If one site is breached, attackers try it on other accounts','It is harder to remember one password','Password managers refuse duplicates'],ans:1,hint:'One key opens every lock.',cn:[{e:'credential stuffing',z:'撞库攻击',p:'zhuàngkù gōngjī'}],fb:'Credential stuffing uses leaked passwords on other sites.'},
+{tid:'sec',q:'What is ransomware?',o:['Antivirus software with subscription','Malware that encrypts files and demands payment','Spam email requesting ransom','Software that monitors browsing'],ans:1,hint:'Ransom means payment demanded.',cn:[{e:'ransomware',z:'勒索软件',p:'lèsuǒ ruǎnjiàn'}],fb:'Ransomware encrypts files and demands payment for the key.'},
+{tid:'sec',q:'What is a digital footprint?',o:['Storage size on hard drive','The trail of data you leave online','Carbon emissions from data centres','Physical size of storage devices'],ans:1,hint:'Everything you do online leaves traces.',cn:[{e:'digital footprint',z:'数字足迹',p:'shùzì zújī'}],fb:'Your digital footprint is the trail of data from online activity.'},
+{tid:'sec',q:'ROT13 is a special case of the Caesar cipher. What makes it unique?',o:['It is fastest on hardware','Applying ROT13 twice returns original text','It uses 13 keys','It only works uppercase'],ans:1,hint:'Shift by 13 twice in a 26-letter alphabet.',cn:[{e:'ROT13',z:'旋转13',p:'xuánzhuǎn 13'}],fb:'ROT13 twice shifts by 26, returning the original text.'}
+].map(q=>({...TOPIC_INFO[q.tid],...q}));
+
+const MOCK_META = [
+  {id:0,title:'Mock Test 1',desc:'Balanced across all 5 topics. Foundational concepts.',color:'#0891b2',time:1800,qids:[0,1,2,13,14,15,26,27,28,39,40,41,4,5,16,17,29,30,42,43]},
+  {id:1,title:'Mock Test 2',desc:'Focus on Graphics and Networks with AI and Python.',color:'#d97706',time:1800,qids:[3,6,7,8,18,19,20,21,31,32,33,34,44,45,46,9,22,35,47,48]},
+  {id:2,title:'Mock Test 3',desc:'Stronger Python and Security focus.',color:'#7c3aed',time:1800,qids:[36,37,38,49,50,51,52,53,54,55,10,11,12,23,24,25,56,57,58,59]},
+  {id:3,title:'Mock Test 4',desc:'Mixed difficulty with real-world questions.',color:'#16a34a',time:1800,qids:[60,61,62,63,64,0,13,26,39,52,4,17,30,43,56,8,21,34,47,60]},
+  {id:4,title:'Mock Test 5',desc:'Full exam simulation.',color:'#dc2626',time:1800,qids:[2,6,10,14,18,22,27,31,36,40,44,48,53,57,61,3,16,29,42,55]}
+];
+
+let qMode='all', qSet=1, selT=new Set(['gr','nw','ai','py','sec']);
+let pqQs=[],pqCur=0,pqSc=0,pqAns=false,pqTSc={};
+let mkQs=[],mkCur=0,mkSc=0,mkAns=false,mkTSc={},mkMeta=null,mkTimer=null,mkSecs=0;
+const ALP='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+function goPg(id){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('on'));
+  document.getElementById('pg-'+id).classList.add('on');
+  const idx=['home','guide','quiz','mock'].indexOf(id);
+  if(idx>=0) document.querySelectorAll('.ntab')[idx].classList.add('on');
+  window.scrollTo(0,0);
+  if(id==='guide') setTimeout(()=>{gTopo('star');gsCipher();drawBmp();},200);
+  if(id==='mock') renderMockCards();
+}
+function goPgT(pg,sec){goPg(pg);setTimeout(()=>scrollSec(sec),250)}
+function scrollSec(id){const el=document.getElementById('sec-'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}
+
+function updateSetHint(){
+  const use=qMode==='all'?['gr','nw','ai','py','sec']:[...selT];
+  const total=use.length*10;
+  const hint=document.getElementById('set-hint');
+  if(hint)hint.textContent=`Current selection: Set ${qSet} · ${use.length} topic${use.length>1?'s':''} · ${total} questions total`;
+}
+function setQMode(m){
+  qMode=m;
+  document.querySelectorAll('.mb').forEach(b=>b.classList.remove('on'));
+  const btn=document.getElementById('mb-'+m);
+  if(btn)btn.classList.add('on');
+  const picker=document.getElementById('topic-picker');
+  picker.style.display=m==='topic'?'grid':'none';
+  updateSetHint();
+}
+function setQSet(n){
+  qSet=n;
+  document.querySelectorAll('.setbtn').forEach(b=>b.classList.remove('on'));
+  const btn=document.getElementById('setbtn-'+n);
+  if(btn)btn.classList.add('on');
+  updateSetHint();
+}
+function togT(el){
+  const t=el.dataset.t;
+  if(selT.has(t)){
+    if(selT.size>1){selT.delete(t);el.classList.remove('on')}
+  }else{selT.add(t);el.classList.add('on')}
+  updateSetHint();
+}
+function getTopicSetQuestions(topicId,setNo){
+  const base=BANK.filter(q=>q.tid===topicId);
+  if(!base.length)return [];
+  const offset=(setNo-1)*10;
+  const selected=[];
+  for(let i=0;i<10;i++){
+    const original=base[(offset+i)%base.length];
+    selected.push({...original,setNo:setNo,setIndex:i+1});
+  }
+  return selected;
+}
+
+function startPQ(){
+  pqQs=[];pqTSc={};
+  const use=qMode==='all'?['gr','nw','ai','py','sec']:[...selT];
+  use.forEach(id=>{
+    const qs=getTopicSetQuestions(id,qSet);
+    if(qs.length){
+      pqTSc[id]={c:0,t:qs.length,l:qs[0].tl+` · Set ${qSet}`,h:qs[0].thx};
+      qs.forEach(q=>pqQs.push(q));
+    }
+  });
+  if(!pqQs.length){alert('Please select at least one topic.');return}
+  pqCur=0;pqSc=0;pqAns=false;window._sel=null;
+  document.getElementById('pq-start').style.display='none';
+  document.getElementById('pq-active').style.display='block';
+  document.getElementById('pq-results').style.display='none';
+  renderPQ();
+}
+function backPQS(){document.getElementById('pq-start').style.display='block';document.getElementById('pq-active').style.display='none';document.getElementById('pq-results').style.display='none'}
+function renderPQ(){renderQEngine(pqQs,pqCur,'pqpf','pqctr','pqsc','pqbody',pqSc,checkPQ,nextPQ,false)}
+function checkPQ(){
+  if(pqAns||window._sel===null)return;
+  pqAns=true;
+  const q=pqQs[pqCur],cor=q.ans;
+  document.querySelectorAll('.opt').forEach(o=>o.classList.add('dis'));
+  document.querySelectorAll('.opt')[cor].classList.add('cor');
+  if(window._sel===cor){pqSc++;pqTSc[q.tid].c++;document.querySelectorAll('.opt')[window._sel].classList.add('cor')}
+  else document.querySelectorAll('.opt')[window._sel].classList.add('wrg');
+  const f=document.getElementById('qfb');
+  f.textContent=(window._sel===cor?'✓ Correct! ':'✗ Not quite. ')+q.fb;
+  f.className='fb show '+(window._sel===cor?'cfb':'wfb');
+  document.getElementById('qchk').style.display='none';
+  document.getElementById('qnrow').style.display='flex';
+  document.getElementById('pqsc').textContent='Score: '+pqSc;
+}
+function nextPQ(){pqCur++;if(pqCur>=pqQs.length)showPQResults();else{pqAns=false;window._sel=null;renderPQ()}}
+function showPQResults(){document.getElementById('pq-active').style.display='none';document.getElementById('pq-results').style.display='block';buildResults('prt','prs','prsc','prpct','prts',pqSc,pqQs.length,pqTSc);window.scrollTo(0,0)}
+
+function renderMockCards(){
+  const g=document.getElementById('mock-grid');g.innerHTML='';
+  MOCK_META.forEach(m=>{g.innerHTML+=`<div class="mock-card" style="--c:${m.color}"><h3>${m.title}</h3><p>${m.desc}</p><div class="mock-meta"><span class="mock-tag">⏱ 30 minutes</span><span class="mock-tag">20 questions</span><span class="mock-tag">All topics</span></div><button class="mock-start-btn" style="background:${m.color}" onclick="startMock(${m.id})">Start ${m.title} →</button></div>`})
+}
+function startMock(id){
+  clearInterval(mkTimer);
+  mkMeta=MOCK_META[id];
+  mkQs=mkMeta.qids.map(i=>BANK[i%BANK.length]).filter(Boolean);
+  mkTSc={};mkQs.forEach(q=>{if(!mkTSc[q.tid])mkTSc[q.tid]={c:0,t:0,l:q.tl,h:q.thx};mkTSc[q.tid].t++});
+  mkCur=0;mkSc=0;mkAns=false;mkSecs=mkMeta.time;window._sel=null;
+  document.getElementById('mk-start').style.display='none';document.getElementById('mk-active').style.display='block';document.getElementById('mk-results').style.display='none';
+  document.getElementById('mk-retry-btn').onclick=()=>startMock(mkMeta.id);
+  startTimer();renderMK();
+}
+function startTimer(){clearInterval(mkTimer);const total=mkMeta.time;mkTimer=setInterval(()=>{mkSecs--;const m=Math.floor(mkSecs/60),s=mkSecs%60;document.getElementById('timer-txt').textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;const fill=document.getElementById('timer-fill');fill.style.width=Math.max(0,mkSecs/total*100)+'%';fill.style.background=mkSecs<300?'#dc2626':mkSecs<600?'#d97706':'#0891b2';if(mkSecs<=0){clearInterval(mkTimer);showMKResults()}},1000)}
+function backMKS(){clearInterval(mkTimer);document.getElementById('mk-start').style.display='block';document.getElementById('mk-active').style.display='none';document.getElementById('mk-results').style.display='none'}
+function renderMK(){renderQEngine(mkQs,mkCur,'mkpf','mkctr','mksc','mkbody',mkSc,checkMK,nextMK,true)}
+function checkMK(){
+  if(mkAns||window._sel===null)return;
+  mkAns=true;
+  const q=mkQs[mkCur],cor=q.ans;
+  document.querySelectorAll('.opt').forEach(o=>o.classList.add('dis'));
+  document.querySelectorAll('.opt')[cor].classList.add('cor');
+  if(window._sel===cor){mkSc++;mkTSc[q.tid].c++;document.querySelectorAll('.opt')[window._sel].classList.add('cor')}
+  else document.querySelectorAll('.opt')[window._sel].classList.add('wrg');
+  const f=document.getElementById('qfb');f.textContent=(window._sel===cor?'✓ Correct! ':'✗ Not quite. ')+q.fb;f.className='fb show '+(window._sel===cor?'cfb':'wfb');
+  document.getElementById('qchk').style.display='none';document.getElementById('qnrow').style.display='flex';document.getElementById('mksc').textContent='Score: '+mkSc;
+}
+function nextMK(){mkCur++;if(mkCur>=mkQs.length)showMKResults();else{mkAns=false;window._sel=null;renderMK()}}
+function showMKResults(){clearInterval(mkTimer);document.getElementById('mk-active').style.display='none';document.getElementById('mk-results').style.display='block';buildResults('mrt','mrs','mrsc','mrpct','mrts',mkSc,mkQs.length,mkTSc);const pct=Math.round(mkSc/mkQs.length*100);document.getElementById('mrt').textContent=mkMeta.title+' — '+(pct>=80?'Passed 🏆':pct>=60?'Nearly there 👍':'Needs revision 📚');window.scrollTo(0,0)}
+
+function renderQEngine(qs,cur,pfId,ctrId,scId,bodyId,sc,checkFn,nextFn,isMock){
+  const q=qs[cur];
+  const topicQs=getTopicSetQuestions(q.tid,q.setNo||qSet);
+  const qIdx=q.setIndex? q.setIndex-1 : Math.max(0,topicQs.findIndex(b=>b.q===q.q));
+  const pct=Math.round(cur/qs.length*100);
+  document.getElementById(pfId).style.width=pct+'%';document.getElementById(pfId).style.background=q.thx;
+  document.getElementById(ctrId).textContent=(cur+1)+' / '+qs.length;
+  document.getElementById(scId).textContent='Score: '+sc;document.getElementById(scId).style.color=q.thx;
+  const L=['A','B','C','D'];
+  document.getElementById(bodyId).innerHTML=`
+    <div class="qthdr"><div class="qticon" style="background:${q.thx}18">${q.ti}</div><div><div class="qtname" style="color:${q.thx}">${q.tl}</div><div class="qtprog">Set ${q.setNo||qSet} · Q${qIdx+1} of ${topicQs.length} in topic · Overall ${cur+1}/${qs.length}</div></div></div>
+    <div class="q-card">
+      <div class="qntag">Question ${cur+1}</div>
+      <div class="qtext">${q.q.replace(/\n/g,'<br>')}</div>
+      <div class="q-tools"><button class="tbtn hbtn" onclick="togH()">💡 Hint</button><button class="tbtn cbtn" onclick="togCN()">🀄 Chinese vocab</button></div>
+      <div class="hbox" id="qhb">💡 ${q.hint}</div>
+      <div class="cnbox" id="qcnb"><div class="cntitle">🀄 Key vocab 关键词汇</div>${q.cn.map(c=>`<div class="cnrow"><span class="cnen">${c.e}</span><span style="color:var(--mu);font-size:.75rem">→</span><span class="cnzh">${c.z}</span><span class="cnpy">(${c.p})</span></div>`).join('')}</div>
+      <div class="opts">${q.o.map((o,i)=>`<div class="opt" onclick="pickO(${i})"><div class="olt">${L[i]}</div><div>${o}</div></div>`).join('')}</div>
+      <div class="fb" id="qfb"></div>
+    </div>
+    <button class="chkbtn" id="qchk" onclick="W_CHK()" disabled style="background:${q.thx}">Check answer</button>
+    <div class="nrow" id="qnrow"><button class="nbtn" onclick="W_NXT()" style="background:${q.thx}">${cur+1<qs.length?'Next →':'See results →'}</button></div>`;
+  window._sel=null;window.W_CHK=checkFn;window.W_NXT=nextFn;
+}
+window.togH=()=>document.getElementById('qhb')?.classList.toggle('show');
+window.togCN=()=>document.getElementById('qcnb')?.classList.toggle('show');
+window.pickO=function(i){
+  const activePQ=document.getElementById('pq-active').style.display!=='none';
+  const activeMK=document.getElementById('mk-active').style.display!=='none';
+  if((activePQ&&pqAns)||(activeMK&&mkAns))return;
+  window._sel=i;
+  document.querySelectorAll('.opt').forEach((el,j)=>el.classList.toggle('sel',j===i));
+  document.getElementById('qchk').disabled=false;
+};
+function buildResults(ttId,subId,scId,pctId,tsId,sc,total,tsc){
+  const pct=Math.round(sc/total*100);document.getElementById(ttId).textContent=pct>=80?'Excellent work! 🏆':pct>=60?'Good effort! 👍':'Keep studying! 📚';document.getElementById(subId).textContent='Breakdown by topic:';document.getElementById(scId).textContent=sc+'/'+total;document.getElementById(scId).style.color=pct>=60?'var(--ok)':'var(--no)';document.getElementById(pctId).textContent=pct+'% correct';
+  const g=document.getElementById(tsId);g.innerHTML='';Object.values(tsc).forEach(t=>{const p=Math.round(t.c/t.t*100);g.innerHTML+=`<div class="tsc"><div class="tscn" style="color:${t.h}">${t.l}</div><div class="tscbw"><div class="tscbf" style="background:${t.h}" data-w="${p}"></div></div><div class="tscnum">${t.c}/${t.t} (${p}%)</div></div>`});setTimeout(()=>document.querySelectorAll('.tscbf').forEach(b=>b.style.width=b.dataset.w+'%'),100);
+}
+function drawBmp(){const c=document.getElementById('bmp-s');if(!c)return;const ctx=c.getContext('2d'),sz=12,p=[[0,0,1,1,1,1,0,0],[0,1,1,2,2,1,1,0],[1,1,2,3,3,2,1,1],[1,2,1,1,1,1,2,1],[1,1,3,1,1,3,1,1],[1,1,1,3,3,1,1,1],[0,1,1,1,1,1,1,0],[0,0,1,1,1,1,0,0]],cl=['#d97706','#b45309','#fbbf24','#1e293b'];p.forEach((row,y)=>row.forEach((v,x)=>{ctx.fillStyle=cl[v];ctx.fillRect(x*sz,y*sz,sz,sz)}))}
+function _topo(sid,did,type){
+  const s=document.getElementById(sid);if(!s)return;const C='#0891b2';
+  const ds={bus:'Bus: one shared cable. Main cable failure can stop the network.',star:'Star: all devices connect to a central switch. Most common today.',ring:'Ring: devices are connected in a closed loop.'};
+  document.getElementById(did).textContent=ds[type];
+  if(type==='star')s.innerHTML=`<circle cx="210" cy="75" r="20" fill="#e0f2fe" stroke="${C}"/><text x="210" y="79" text-anchor="middle" font-size="10" fill="${C}">SW</text>${[[90,40],[90,110],[330,40],[330,110],[210,20]].map(([x,y],i)=>`<line x1="210" y1="75" x2="${x}" y2="${y}" stroke="${C}"/><circle cx="${x}" cy="${y}" r="14" fill="#e0f2fe" stroke="${C}"/><text x="${x}" y="${y+4}" text-anchor="middle" font-size="8" fill="${C}">PC${i+1}</text>`).join('')}`;
+  else if(type==='bus')s.innerHTML=`<line x1="40" y1="75" x2="380" y2="75" stroke="${C}" stroke-width="3"/>${[80,140,200,260,320].map((x,i)=>`<line x1="${x}" y1="75" x2="${x}" y2="${i%2?110:40}" stroke="${C}"/><circle cx="${x}" cy="${i%2?110:40}" r="14" fill="#e0f2fe" stroke="${C}"/><text x="${x}" y="${i%2?114:44}" text-anchor="middle" font-size="8" fill="${C}">PC${i+1}</text>`).join('')}`;
+  else s.innerHTML=`${[[210,25],[310,75],[250,125],[170,125],[110,75]].map(([x,y],i,a)=>{const[nx,ny]=a[(i+1)%a.length];return`<line x1="${x}" y1="${y}" x2="${nx}" y2="${ny}" stroke="${C}"/><circle cx="${x}" cy="${y}" r="14" fill="#e0f2fe" stroke="${C}"/><text x="${x}" y="${y+4}" text-anchor="middle" font-size="8" fill="${C}">PC${i+1}</text>`}).join('')}`;
+}
+window.gTopo=t=>_topo('g-topo','g-topo-d',t);
+function gsCipher(){
+  const shift=parseInt(document.getElementById('gs')?.value||3);document.getElementById('gsv').textContent=shift;
+  const pr=document.getElementById('gpr'),cr=document.getElementById('gcr');if(!pr||!cr)return;pr.innerHTML='';cr.innerHTML='';
+  ALP.split('').forEach((l,i)=>{pr.innerHTML+=`<div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:2px;padding:1px 0;text-align:center;font-size:9px;font-family:Courier New,monospace;color:#dc2626;font-weight:700">${l}</div>`;cr.innerHTML+=`<div style="background:#fff1f2;border:1px solid #fecaca;border-radius:2px;padding:1px 0;text-align:center;font-size:9px;font-family:Courier New,monospace;color:#b91c1c">${ALP[(i+shift)%26]}</div>`});
+  document.getElementById('gce').textContent='HELLO'.split('').map(c=>ALP[(ALP.indexOf(c)+shift)%26]).join('');
+}
+(function(){const c=document.getElementById('cbg');if(!c)return;[[300,180,'#7c3aed',80,'28s'],[560,340,'#0891b2',120,'40s'],[90,390,'#d97706',55,'22s'],[590,90,'#16a34a',90,'35s']].forEach(([x,y,cl,r,d])=>{const el=document.createElement('div');el.className='cb';el.style.cssText=`width:${r*2}px;height:${r*2}px;left:${x-r}px;top:${y-r}px;border-color:${cl};animation-duration:${d}`;c.appendChild(el)})})();
+setTimeout(()=>{gTopo('star');gsCipher();drawBmp();renderMockCards();updateSetHint()},400);
+</script>
+</body>
+</html>
